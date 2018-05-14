@@ -1,0 +1,38 @@
+{
+  "name": "QuestPal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuestPal/QuestPal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QuestPal/QuestPal/issues"
+  },
+  "homepage": "https://github.com/QuestPal/QuestPal#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-loader": "^7.1.4",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "css-loader": "^0.28.11",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.4",
+    "pg": "^7.4.3",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "redux": "^4.0.0",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3"
+  }
+}
