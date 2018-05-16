@@ -1,18 +1,16 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
-import Store from './store/configureStore';
+// import Store from './store/configureStore';
 import App from './components/App.jsx';
 import CSS from '../public/styles.css';
 
-const store = Store();
+// const store = Store();
 
 render(
-	<Provider store={store}>
 		<Router>
 			<Route path="/" component={App} />
-		</Router>
-	</Provider>,
+		</Router>,
 	document.getElementById('app')
 );
