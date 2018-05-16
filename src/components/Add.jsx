@@ -67,8 +67,10 @@ class Add extends Component {
 						className="form-control"
 					/>
 				</div>
-				<button type="button" class="btn btn-primary" onClick={this.addQuestion} >Add Question</button>
+				<button type="button" className="btn btn-primary" onClick={this.addQuestion} >Add Question</button>
 			</form>
 		)
 	}
 }
+
+export default Add;

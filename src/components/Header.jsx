@@ -1,11 +1,11 @@
 import React from "react";
-import { Route, Link } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 
 const Header = props => {
   return (
     <div>
-				<Link to="/home"><div className="Title"><h1>QuestPal</h1></div></Link>
-				<Link to="/add"><div className="add">Add Questions</div></Link>
+				<NavLink to="/home">QuestPal</NavLink>
+				<NavLink to="/add">Add Questions</NavLink>
 				{/* <Link to="/profile">
 					<div>
 						<img className="userPic" src={props.url} />
@@ -15,3 +15,5 @@ const Header = props => {
     </div>
   );
 };
+
+export default Header;

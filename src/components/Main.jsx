@@ -10,13 +10,12 @@ class Main extends Component {
 
 	render() {
 		return (
-		<Router>
 			<Switch>
 				<Route path="/home" render={props => <Search {...props} />} />
+				{/* <Route path="/home" component={Search} /> */}
 				<Route path="/add" component={Add} />
 				<Route path="/result" component={Result} />
 			</Switch>
-		</Router>
 		)
 	}
 }
