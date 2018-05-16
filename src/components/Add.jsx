@@ -6,11 +6,13 @@ class Add extends Component {
 		this.state = {
 			companyName: '',
 			questions: [],
-			value: 1,
+			value: 0,
+			questFields: []
 		}
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 		this.handleQuestion = this.handleQuestion.bind(this);
+		this.addQuestion = this.addQuestion.bind(this);
 	}
 
 	onChange(e) {
@@ -25,17 +27,6 @@ class Add extends Component {
 
 	addQuestion(e) {
 		this.setState({value : this.state.value+1});
-		let node = document.createElement('div');
-		node.className = 'form-group';
-		node.innerHTML = `<label className="control-label">Question</label>
-		<input 
-			value={this.state.questions}
-			onChange={this.handleQuestion}
-			type="text"
-			name={this.state.value}
-			className="form-control"
-		/>`
-		document.getElementsByClassName('add').appendChild(node)
 	}
 
 	onSubmit(e) {
@@ -44,6 +35,20 @@ class Add extends Component {
 
 
 	render() {
+		const index = this.state.value;
+		const arr = [];
+		for(let i = 0 ; i< index ;i++) {
+			arr.push(<div className="form-group" key={i}>
+			<label className="control-label">Question</label>
+			<input 
+				value={this.state.questions[i]}
+				onChange={this.handleQuestion}
+				type="text"
+				name={i}
+				className="form-control"
+			/></div>);
+		}
+
 		return (
 			<form className="add" onSubmit={this.onSubmit}>
 				<h1> Input your questions </h1>
@@ -60,13 +65,14 @@ class Add extends Component {
 				<div className="form-group">
 					<label className="control-label">Question</label>
 					<input 
-						value={this.state.questions}
+						value={this.state.questions[0]}
 						onChange={this.handleQuestion}
 						type="text"
-						name={this.state.value}
+						name={0}
 						className="form-control"
 					/>
 				</div>
+				{arr}
 				<button type="button" className="btn btn-primary" onClick={this.addQuestion} >Add Question</button>
 			</form>
 		)
