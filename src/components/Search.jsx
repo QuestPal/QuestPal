@@ -12,12 +12,17 @@ class Search extends Component {
       questType: "Question Type",
       input: ""
     };
-  }
+	}
+	
+	handleChange(e) { 
+		this.setState({ [e.target.name]: e.target.value});
+	}
   render() {
     return (
       <div>
         <DropDownMenu
-          value={this.state.questType}
+					value={this.state.questType}
+					name="questType"
           onChange={this.handleChange}
           openImmediately={true}
         >
@@ -26,8 +31,10 @@ class Search extends Component {
           <MenuItem value={"System Design"} primaryText="System Design" />
         </DropDownMenu>
         <TextField
-          hintText="KeyWord Search"
-          errorText="This field is required"
+					hintText="KeyWord Search"
+					name="input"
+					errorText="This field is required"
+					onChange={this.handleChange}
         />
         <RaisedButton label="Search" primary={true} />
       </div>

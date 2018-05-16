@@ -6,6 +6,7 @@ class Login extends Component {
 		this.state = {
 			username : '',
 			password : '',
+			email:'',
 		}
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
@@ -23,8 +24,18 @@ class Login extends Component {
 	render() {
 		return (
 			<form onSubmit={this.onSubmit}>
-				<h1> Log In </h1>
-				<div>
+				<h1> Join QuestPal Here </h1>
+				<div className="form-group">
+					<label className="control-label">Email</label>
+					<input 
+						value={this.state.email}
+						onChange={this.onChange}
+						type="text"
+						name="email"
+						className="form-control"
+					/>
+				</div>
+				<div className="form-group">
 					<label className="control-label">Username</label>
 					<input 
 						value={this.state.username}
@@ -34,7 +45,7 @@ class Login extends Component {
 						className="form-control"
 					/>
 				</div>
-				<div>
+				<div className="form-group">
 					<label className="control-label">Password</label>
 					<input 
 						value={this.state.password}
