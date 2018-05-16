@@ -28,7 +28,7 @@ class Add extends Component {
 		let node = document.createElement('div');
 		node.className = 'form-group';
 		node.innerHTML = `<label className="control-label">Question</label>
-		<input 
+		<input
 			value={this.state.questions}
 			onChange={this.handleQuestion}
 			type="text"
@@ -49,7 +49,7 @@ class Add extends Component {
 				<h1> Input your questions </h1>
 				<div className="form-group">
 					<label className="control-label">Company Name</label>
-					<input 
+					<input
 						value={this.state.companyName}
 						onChange={this.onChange}
 						type="text"
@@ -59,7 +59,7 @@ class Add extends Component {
 				</div>
 				<div className="form-group">
 					<label className="control-label">Question</label>
-					<input 
+					<input
 						value={this.state.questions}
 						onChange={this.handleQuestion}
 						type="text"

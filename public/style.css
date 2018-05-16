@@ -1,0 +1,35 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color:lightslategrey
+}
+
+#logo_container{
+    color: turquoise;
+}
+#link_container a {
+color:white;
+margin:
+}
+
+#homeLink{
+    margin-right: 10px;
+}
+
+.active{
+    color:turquoise;
+    text-decoration: underline
+}
+
+#header{
+    padding-left:15px;
+    padding-right:15px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    height: 50px;
+}
