@@ -1,14 +1,10 @@
 import { Router, Switch, Route } from "react-router-dom";
 import React from "react";
 import { connect } from 'react-redux';
-import PrivateRoute from './PrivateRouter.jsx';
-import Main from './Main.jsx';
-import Entry from './Entry.jsx';
+// import PrivateRoute from './PrivateRouter.jsx';
+import Search from './Search.jsx';
+import Result from './Result.jsx';
 import Add from './Add.jsx';
-
-const maptStateToProps = (store) => ({
-	isAuthenticated: store.isAuthenticated,
-});
 
 class Main extends Component {
 
@@ -16,13 +12,13 @@ class Main extends Component {
 		return (
 		<Router>
 			<Switch>
-				<Route path="/entry" component={Entry} />
-				<PrivateRoute path="/home" component={Main} isAuthenticated={this.props.isAuthenticated} />
-				<PrivateRoute path="/add" component={Add} isAuthenticated={this.props.isAuthenticated} />
+				<Route path="/home" render={props => <Search {...props} />} />
+				<Route path="/add" component={Add} />
+				<Route path="/result" component={Result} />
 			</Switch>
 		</Router>
 		)
 	}
 }
 
-export default connect(mapStateToProps, null)(App);
+export default Main;

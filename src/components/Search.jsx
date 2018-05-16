@@ -11,12 +11,18 @@ class Search extends Component {
     this.state = {
       questType: "Question Type",
       input: ""
-    };
+		};
+		this.handleChange = this.handleChange.bind(this);
+		this.onClick = this.onClick.bind(this);
 	}
 	
 	handleChange(e) { 
 		this.setState({ [e.target.name]: e.target.value});
 	}
+	onClick(e) {
+		this.props.history.push('/result');
+	}
+
   render() {
     return (
       <div>
@@ -36,7 +42,7 @@ class Search extends Component {
 					errorText="This field is required"
 					onChange={this.handleChange}
         />
-        <RaisedButton label="Search" primary={true} />
+        <RaisedButton label="Search" primary={true} onClick={this.onClick}/>
       </div>
     );
   }

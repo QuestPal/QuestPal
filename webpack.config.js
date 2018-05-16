@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-	mode: 'developement',
+	mode: 'development',
   entry: './src/index.js',
   output: {
     path: path.join(__dirname, 'build'),
@@ -12,10 +12,13 @@ module.exports = {
       {
         loader: 'babel-loader',
         test: /\.js$|\.jsx$/,
-        exclude: /node_modules/
+				exclude: /node_modules/,
+				query: {
+          presets:[ 'es2015', 'react', 'stage-2' ]
+        }
       },
       {
-        test: /.scss$/,
+        test: /.css$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
       },
 	    {
