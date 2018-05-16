@@ -1,5 +1,5 @@
 import { Router, Switch, Route } from "react-router-dom";
-import React from "react";
+import React, {Component} from "react";
 import { connect } from 'react-redux';
 // import PrivateRoute from './PrivateRouter.jsx';
 import Search from './Search.jsx';

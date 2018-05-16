@@ -4,8 +4,9 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
+    "start": "nodemon server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack -w"
+    "build": "webpack -w"
   },
   "repository": {
     "type": "git",
