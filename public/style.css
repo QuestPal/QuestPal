@@ -10,9 +10,12 @@ body {
 #logo_container {
   color: turquoise;
 }
+#link_container {
+	justify-self: center;
+	margin: auto;
+}
 #link_container a {
   color: white;
-  margin: 0;
 }
 
 #homeLink {
@@ -34,6 +37,14 @@ body {
   height: 100px;
 }
 
+.logo{
+	width:200px;
+	height:200px;
+	border-radius: 50%;
+	position:absolute;
+	top:0;
+}
+
 .searchContainer {
 	display:flex;
 	height: calc(100vh - 100px);
@@ -45,4 +56,12 @@ body {
 .searchBar {
 	display: flex;
 	margin:20px 0;
+}
+
+.add {
+	display: flex;
+	flex-direction: column;
+	justify-self: center;
+	width: 70vw;
+	margin: auto;
 }
