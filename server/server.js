@@ -1,16 +1,14 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const dbSetup = require('./db_Setup');
 const dbSeedData = require('./seed_Data');
 const dbController = require('./db_Controller');
 const app = express();
 const port = 3000;
-//create client
 
-// app.use(express.static('public'))
-
-
+app.use(express.static('build'))
 
 //sets up DB
 dbSetup()
@@ -24,14 +22,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-
 ///Regular routes///
 app.get('/', (req, res)=> {
     res.sendFile(path.join(__dirname, '../public/index.html'))
 });
-app.get('/bundle.js', (req, res)=> {
-    res.sendFile(path.join(__dirname, '../build/bundle.js'))
-});
+
 
 //DB Query Routes
 app.get('/getCompanyNames',dbController.getCompanyNames);

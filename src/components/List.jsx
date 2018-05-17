@@ -22,7 +22,7 @@ class List extends Component {
 
 	render() {
 		const compList = this.props.companyNames.map((name, i)=> {
-			return <button key={name} value={name} className='btn btn-info list-group-item list-group-item-action' onClick={this.handleClick} >{name}</button>
+			return <button key={name} value={name} className='btn btn-outline-info list-group-item' onClick={this.handleClick} >{name}</button>
 		})
 		return (
 			<div>

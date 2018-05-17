@@ -1,0 +1,48 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: lightslategrey;
+}
+
+#logo_container {
+  color: turquoise;
+}
+#link_container a {
+  color: white;
+  margin: 0;
+}
+
+#homeLink {
+  margin-right: 10px;
+}
+
+.active {
+  color: turquoise;
+  text-decoration: underline;
+}
+
+#header {
+  padding-left: 15px;
+  padding-right: 15px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  height: 100px;
+}
+
+.searchContainer {
+	display:flex;
+	height: calc(100vh - 100px);
+	align-items: center;
+	justify-content: center;
+	flex-direction:column;
+}
+
+.searchBar {
+	display: flex;
+	margin:20px 0;
+}

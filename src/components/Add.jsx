@@ -37,7 +37,7 @@ class Add extends Component {
 	render() {
 		const index = this.state.value;
 		const arr = [];
-		for(let i = 0 ; i< index ;i++) {
+		for(let i = 1 ; i<= index ;i++) {
 			arr.push(<div className="form-group" key={i}>
 			<label className="control-label">Question</label>
 			<input 
@@ -54,7 +54,7 @@ class Add extends Component {
 				<h1> Input your questions </h1>
 				<div className="form-group">
 					<label className="control-label">Company Name</label>
-					<input 
+					<input
 						value={this.state.companyName}
 						onChange={this.onChange}
 						type="text"
