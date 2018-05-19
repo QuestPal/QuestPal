@@ -9,7 +9,8 @@ const app = express();
 const port = 3000;
 
 app.use(express.static('build'))
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}))
 //sets up DB
 dbSetup()
 .then(()=>{
@@ -35,7 +36,7 @@ app.get('/searchKeyword', dbController.searchKeyword);
 app.post('/createUserProfile', dbController.createUserProfile);
 app.put('/updateUserProfile', dbController.updateUserProfile);
 app.post('/addQuestion', dbController.addQuestion);
-app.get('/getAllData', dbController.getAllData);
+// app.get('/getAllData', dbController.getAllData);
 //Auth Routes
 
 app.listen(port, ()=> {console.log(`server listening on ${port}...`)});

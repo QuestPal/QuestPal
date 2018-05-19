@@ -50,17 +50,35 @@ module.exports = {
 
     // Add question to the db
     addQuestion: (req, res) => {
-        makeQuery(`SELECT companyid FROM company WHERE companyname LIKE '%${req.body.companyname}%'`,
+			console.log(req.body);
+        makeQuery(`SELECT companyid FROM company WHERE companyname LIKE '%${req.body.companyName}%'`,
             null,
             (err, result) => {
                 if (err) res.json({failure: err});
                 if (result.rows[0]) {
-                    makeQuery(`INSERT INTO questions(companyid, question, type) VALUES('${result.rows[0].companyid}', '${req.body.question}', '${req.body.type}')`)
+									req.body.questions.forEach(quest => {
+									const question = Object.values(quest)[0].split('').map((w) => {
+											if (w === "\'") {
+												return "\'\'";
+											}
+											return w;
+										}).join('');
+                    makeQuery(`INSERT INTO questions(companyid, question, type) VALUES('${result.rows[0].companyid}', '${question}', '${Object.keys(quest)[0]}')`)
+									})
                 } else {
-                    makeQuery(`INSERT INTO company (companyname) VALUES('${req.body.companyname}') RETURNING companyid;`,
+                    makeQuery(`INSERT INTO company (companyname) VALUES('${req.body.companyName}') RETURNING companyid;`,
                     null,
                     (err, result) => {
-                        makeQuery(`INSERT INTO questions (companyid, question, type)VALUES ('${result.rows[0].companyid}', '${req.body.question}', '${req.body.type}')`)
+											console.log(JSON.stringify(result)+'<----- this is result');
+											req.body.questions.forEach(quest => {
+												const question = Object.values(quest)[0].split('').map((w) => {
+													if (w === "\'") {
+														return "\'\'";
+													}
+													return w;
+												}).join('');
+												makeQuery(`INSERT INTO questions(companyid, question, type) VALUES('${result.rows[0].companyid}', '${question}', '${Object.keys(quest)[0]}')`)
+											})
                     });
                 }
             });
