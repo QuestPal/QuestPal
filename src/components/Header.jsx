@@ -4,7 +4,9 @@ import { Route, NavLink } from "react-router-dom";
 const Header = props => {
 	let active = {
 		color:'turquoise',
-    textDecoration: 'underline'}
+		textDecoration: 'underline'
+	}
+	
   return (
     <div id='header' >
 				<img className="logo" src="https://image.ibb.co/gxzAoy/logo.png" alt="https://goo.gl/e1QdVk"/>

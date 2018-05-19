@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
 import DropDownMenu from "material-ui/DropDownMenu";
 import MenuItem from "material-ui/MenuItem";
 import TextField from "material-ui/TextField";
@@ -64,7 +63,7 @@ class Search extends Component {
               onClick={this.onClick}
             />
           </div>
-          <List companyNames={["google", "facebook", "twitter"]} />
+          <List companyNames={this.props.names} />
         </div>
       </MuiThemeProvider>
     );

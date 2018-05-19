@@ -35,10 +35,8 @@ app.post('/getQuestionsFromCompany', dbController.getQuestionsFromCompany);
 app.get('/searchKeyword', dbController.searchKeyword);
 app.post('/createUserProfile', dbController.createUserProfile);
 app.put('/updateUserProfile', dbController.updateUserProfile);
-app.post('/addquestion',(req, res) => {
-	console.log(req.body);
-	res.status(200);
-})
+app.post('/addQuestion', dbController.addQuestion);
+// app.get('/getAllData', dbController.getAllData);
 //Auth Routes
 
 app.listen(port, ()=> {console.log(`server listening on ${port}...`)});

@@ -1,37 +1,52 @@
 import * as types from '../constants/actionTypes';
 
 const initialState = {
-	companyName: {},
-	questions: {}
+	companyQuestions: {},
+	questions: {
+		'General':[],
+		'Algorithm': [],
+		'System Design':[],
+	},
+	companyNames: [],
 }
 
 const questionManager = (state = initialState, action) => {
 	switch (action.type) {
-		case types.GET_ALL:
-			return {
-				companyName: action.json
-			};
 		case types.ADD_QUESTION:
-			const obj = Object.assign({}, state.companyName);
-			const objQ = Object.assign({}, state.questions);
+			const companyQuestions = Object.assign({}, state.companyQuestions);
+			const questions = Object.assign({}, state.questions);
+			const companyNames = state.companyNames.slice();
 			const temp = action.questions.map(ques => {
 				return	Object.values(ques)[0]
 			})
 
-			if(obj[action.companyName]) {
-				obj[action.companyName] = [...obj[action.companyName],...temp];
-			}	else obj[action.companyName] = temp;
+			if(companyQuestions[action.companyName]) {
+				companyQuestions[action.companyName] = [...companyQuestions[action.companyName],...temp];
+			}	else companyQuestions[action.companyName] = temp;
 
-			action.questions.forEach(obj => {
-				if(obj.General) objQ.General.push(obj.General);
-				else if(obj.Algorithm) ObjQ.Algorithm.push(obj.Algorithm);
-				else ObjQ['System Design'].push(obj['System Design']);
+			action.questions.forEach(object => {
+				if(object.General) questions.General.push(object.General);
+				else if(object.Algorithm) questions.Algorithm.push(object.Algorithm);
+				else questions['System Design'].push(object['System Design']);
 			})
-			return {companyName:obj, questions: objQ};
+
+			companyNames.push(action.companyName);
+
+			return {companyQuestions, questions, companyNames};
+		case types.GET_COMPANY_NAMES:
+			return {
+				companyNames: action.json,
+				questions: {
+					'General':[],
+					'Algorithm': [],
+					'System Design':[],
+				},
+				companyQuestions: {}
+			};
 		defalut:
 		 return state;
 	}
 }
 
-export default questionManager
+export default questionManager;
 

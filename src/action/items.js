@@ -1,18 +1,18 @@
-import * as types from '../constants/actionTypes.js';
+import * as types from "../constants/actionTypes.js";
 
 export const addQuestion = (companyName, questions) => {
   return dispatch => {
-    return fetch("/addquestion", {
+    return fetch("/addQuestion", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({companyName, questions})
+      body: JSON.stringify({ companyName, questions })
     }).then(res =>
       dispatch({
         type: types.ADD_QUESTION,
-				companyName,
-				questions,
+        companyName,
+				questions
       })
     );
   };
@@ -23,10 +23,7 @@ export const searchQuestion = keyword => ({
   keyword
 });
 
-export const getAll = () => {
-	return dispatch => {
-		return fetch('/getall')
-		.then(res => res.json())
-		.then(json => dispatch({types: types.GET_ALL, json}))
-	}
-}
+export const getCompanyNames = json => ({
+  type: types.GET_COMPANY_NAMES,
+  json
+});
