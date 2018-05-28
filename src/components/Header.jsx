@@ -14,7 +14,8 @@ const Header = props => {
 					<NavLink style={{marginRight: '10px'}} id='homeLink' to="/home" activeStyle={active}>Home</NavLink>
 					<NavLink id='questionLink' to="/add" activeStyle={active}>Add Questions</NavLink>
 				</div>
-				{/* <Link to="/profile">
+				{/* Still need to add login/signup 
+				<Link to="/profile">
 					<div>
 						<img className="userPic" src={props.url} />
 						{props.userName}

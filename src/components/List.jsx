@@ -10,10 +10,12 @@ class List extends Component {
 		this.handleClick = this.handleClick.bind(this);
 	}
 	
+	//User clicking company name
 	handleClick(e) {
 		this.setState({redirect: true});
 	}
 
+	//Render react router for redirecting 
 	renderRedirect() {
 		if(this.state.redirect) {
 			return <Redirect to='/result' />

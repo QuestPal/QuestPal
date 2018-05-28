@@ -2,7 +2,7 @@ const makeQuery = require('./db_Interact');
 
 
 module.exports = () => {
-    console.log('running seed_Data.js...');
+    // console.log('running seed_Data.js...');
     //Empty all tables
 
     makeQuery(`DELETE FROM questions`);

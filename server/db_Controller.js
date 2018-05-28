@@ -50,7 +50,7 @@ module.exports = {
 
     // Add question to the db
     addQuestion: (req, res) => {
-			console.log(req.body);
+			// console.log(req.body);
         makeQuery(`SELECT companyid FROM company WHERE companyname LIKE '%${req.body.companyName}%'`,
             null,
             (err, result) => {
@@ -69,7 +69,7 @@ module.exports = {
                     makeQuery(`INSERT INTO company (companyname) VALUES('${req.body.companyName}') RETURNING companyid;`,
                     null,
                     (err, result) => {
-											console.log(JSON.stringify(result)+'<----- this is result');
+											// console.log(JSON.stringify(result)+'<----- this is result');
 											req.body.questions.forEach(quest => {
 												const question = Object.values(quest)[0].split('').map((w) => {
 													if (w === "\'") {
