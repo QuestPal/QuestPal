@@ -15,6 +15,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 class App extends Component {
+	//Fetch Company Name list
 	componentDidMount() {
 		fetch('/getCompanyNames')
 		.then(res => res.json())
@@ -24,6 +25,7 @@ class App extends Component {
 	}
 
 	render() {
+		//Only render if state is defined
 		if(this.props.store !== undefined){
 			return (
 				<div className="mainContainer">

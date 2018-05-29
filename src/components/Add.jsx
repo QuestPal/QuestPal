@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import * as actions from '../action/items';
 
+//Map reducers to props
 const mapDispatchToProps = dispatch => {
 	return bindActionCreators({
+		//Add Questions to database and update state with user input
 		addQuestions: actions.addQuestion,
 	},dispatch)
 }
@@ -26,22 +28,27 @@ class Add extends Component {
 		this.handleType = this.handleType.bind(this)
 	}
 
+	//Update state companyName with companyName input
 	onChange(e) {
 		this.setState({ companyName: e.target.value})
 	}
 
+	//Update state question type for each questions
 	handleType(e) {
 		const arr = this.state.type.slice();
 		arr[e.target.name] = e.target.value;
 		this.setState({type: arr})
 	}
 
+	//Update state question content by input field's index
+	//with user's question input.
 	handleQuestion(e) {
 		const arr = this.state.questions.slice();
 		arr[e.target.name] = e.target.value;
 		this.setState({ questions: arr});
 	}
 
+	//Add a new question input field
 	addQuestion(e) {
 		const arr = this.state.questions.slice();
 		const arr1 = this.state.type.slice();
@@ -50,6 +57,7 @@ class Add extends Component {
 		this.setState({index : this.state.index+1, questions: arr, type: arr1});
 	}
 
+	//Submit input form
 	onSubmit(e) {
 		e.preventDefault();
 		if(this.state.companyName.length === 0) alert('Need Company Name');

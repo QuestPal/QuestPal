@@ -12,6 +12,12 @@ const initialState = {
 
 const questionManager = (state = initialState, action) => {
 	switch (action.type) {
+		/** 
+		* @name: ADD_QUESTION
+		* @param: { string } companyName, { array } questions
+		* @description: Update question state from user input
+		* @return: update state
+		*/
 		case types.ADD_QUESTION:
 			const companyQuestions = Object.assign({}, state.companyQuestions);
 			const questions = Object.assign({}, state.questions);
@@ -33,6 +39,12 @@ const questionManager = (state = initialState, action) => {
 			companyNames.push(action.companyName);
 
 			return {companyQuestions, questions, companyNames};
+		/** 
+		* @name: GET_COMPANY_NAMES
+		* @param: none
+		* @description: Update the state with companyNames fetch from database
+		* @return: Updated companynames list
+		*/
 		case types.GET_COMPANY_NAMES:
 			return {
 				companyNames: action.json,

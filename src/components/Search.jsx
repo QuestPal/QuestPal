@@ -18,13 +18,14 @@ class Search extends Component {
     this.onClick = this.onClick.bind(this);
   }
 
+	//Handle question type changes from user selection
   handleChange(e, i, v) {
     if (typeof v === "number") {
-			console.log(e.target);
 			this.setState({ value: v, questType: e.target.innerHTML})
 		}
 		else this.setState({ [e.target.name]: e.target.value });
-  }
+	}
+	
   onClick(e) {
     this.props.history.push("/result");
   }
